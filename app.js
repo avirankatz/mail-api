@@ -14,4 +14,4 @@ app.post('/mail', (req, res) => {
     res.json('Mail sent!');
 });
 
-app.listen(3000, () => console.log('Mail API listening on port 3000!'));
+app.listen(3000, "0.0.0.0", () => console.log('Mail API listening on port 3000!'));
