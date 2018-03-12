@@ -6,12 +6,12 @@ app.use(bodyparser.json());
 
 app.post('/mail', (req, res) => {
     nodemailer.mail({
-        from: "קואופרטיב בשותף <no-reply@beshutaf.org>", // sender address
-        to: "aviran.katz@gmail.com", // list of receivers
-        subject: "מישהו מילא את אחד הסקרים", // Subject line
-        html: `המשתמש <b>${req.body.user}</b> מילא את הסקר <b>sdgsad</b>.`
+        from: req.body.from, // sender address
+        to: req.body.to, // list of receivers
+        subject: req.body.subject, // Subject line
+        html: req.body.html
       });
-    res.json('Hello World!')
+    res.json('Mail sent!');
 });
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(3000, () => console.log('Mail API listening on port 3000!'));
